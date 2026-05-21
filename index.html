@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비에이텍(주) - 깨끗한 물을 움직이는 첨단 펌프 기술</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0A5C9E;
+            --light-blue: #00A8E8;
+            --deep-navy: #03254C;
+            --pure-white: #FFFFFF;
+            --water-bg: #F4F9FC;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--pure-white);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo a {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--light-blue);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--deep-navy);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--light-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(3, 37, 76, 0.6), rgba(10, 92, 158, 0.4)), 
+                        url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--pure-white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #E0F2FE;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #F0F9FF;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--light-blue);
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 168, 232, 0.4);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(10, 92, 158, 0.6);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background-color: var(--water-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--deep-navy);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--light-blue);
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 60px;
+        }
+
+        .feature-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--pure-white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(10, 92, 158, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            color: var(--deep-navy);
+            margin-bottom: 15px;
+        }
+
+        .feature-text {
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--deep-navy);
+            color: #AEB9E2;
+            padding: 60px 20px 30px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-info h3 {
+            color: var(--pure-white);
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links h4 {
+            color: var(--pure-white);
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #AEB9E2;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--pure-white);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            color: #7A88B6;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Simplification for mobile view in sample */
+            }
+            .hero-title {
+                font-size: 32px;
+            }
+            .hero-description {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">BIATEC<span>(주)비에이텍</span></a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="intro.html" class="nav-link">기업소개</a></li>
+                    <li class="nav-item"><a href="product.html" class="nav-link">주요제품</a></li>
+                    <li class="nav-item"><a href="equipment.html" class="nav-link">장비현황</a></li>
+                    <li class="nav-item"><a href="sales_history.html" class="nav-link">업력 및 인증</a></li>
+                    <li class="nav-item"><a href="map.html" class="nav-link">찾아오시는 길</a></li>
+                    <li class="nav-item"><a href="inquiry.html" class="nav-link">온라인 문의</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Blue Advanced Technology</p>
+            <h1 class="hero-title">깨끗한 물을 움직이는<br>첨단 펌프 기술의 리더</h1>
+            <p class="hero-description">
+                비에이텍(주)은 부스터 펌프 시스템, 수중 펌프, 정량 펌프 등 최첨단 산업용 펌프 제조 및 유지관리 전문 기업으로서 완벽한 품질 보증과 친환경 위생을 실현합니다.
+            </p>
+            <a href="product.html" class="cta-btn">제품 라인업 보기</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">비에이텍의 핵심 역량</h2>
+        <p class="section-desc">체계적인 기술과 철저한 품질 관리로 최적의 수처리 솔루션을 제공합니다.</p>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💧</div>
+                <h3 class="feature-title">친환경 위생 안전</h3>
+                <p class="feature-text">KC 위생안전기준 인증을 획득한 부스터 펌프 시스템으로 안심하고 마실 수 있는 깨끗한 급수 환경을 보장합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3 class="feature-title">자체 설계 및 맞춤 제작</h3>
+                <p class="feature-text">수중펌프 CAD 도면 자체 설계 역량 및 밀링, 선반 등 정밀 제조 장비를 보유하여 고객사 맞춤형 펌프를 제작합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3 class="feature-title">철저한 유지관리 지침</h3>
+                <p class="feature-text">설계 단계부터 유지보수까지 규격화된 '운전 및 유지관리 지침서'를 기반으로 24시간 안정적인 운전을 지원합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>비에이텍(주)</h3>
+                <p>대표이사: 조세연</p>
+                <p>주소: (24427) 강원특별자치도 춘천시 퇴계공단2길 64 (퇴계동)</p>
+                <p>TEL: 033-264-9243 &nbsp;|&nbsp; FAX: 033-251-5747</p>
+                <p>이메일/담당자 문의: 대지 및 지침서 참조</p>
+            </div>
+            <div class="footer-links">
+                <h4>바로가기</h4>
+                <ul>
+                    <li><a href="intro.html">기업소개</a></li>
+                    <li><a href="product.html">주요제품</a></li>
+                    <li><a href="equipment.html">장비현황</a></li>
+                    <li><a href="sales_history.html">업력 및 인증서</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>고객지원</h4>
+                <ul>
+                    <li><a href="map.html">찾아오시는 길</a></li>
+                    <li><a href="inquiry.html">온라인 문의</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Blue Advanced Technology Co., Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
