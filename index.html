@@ -3,380 +3,414 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비에이텍(주) - 깨끗한 물을 움직이는 첨단 펌프 기술</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #0A5C9E;
-            --light-blue: #00A8E8;
-            --deep-navy: #03254C;
-            --pure-white: #FFFFFF;
-            --water-bg: #F4F9FC;
-            --text-dark: #333333;
-            --text-gray: #666666;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--pure-white);
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .logo a {
-            font-family: 'Poppins', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--light-blue);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-item {
-            margin-left: 30px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--deep-navy);
-            font-weight: 500;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .nav-link:hover {
-            color: var(--light-blue);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(3, 37, 76, 0.6), rgba(10, 92, 158, 0.4)), 
-                        url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--pure-white);
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            color: #E0F2FE;
-            text-transform: uppercase;
-        }
-
-        .hero-title {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            line-height: 1.3;
-        }
-
-        .hero-description {
-            font-size: 18px;
-            margin-bottom: 40px;
-            color: #F0F9FF;
-            font-weight: 300;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--light-blue);
-            color: var(--pure-white);
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0, 168, 232, 0.4);
-            transition: var(--transition);
-        }
-
-        .cta-btn:hover {
-            background-color: var(--primary-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(10, 92, 158, 0.6);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 20px;
-            background-color: var(--water-bg);
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 32px;
-            color: var(--deep-navy);
-            margin-bottom: 15px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background-color: var(--light-blue);
-        }
-
-        .section-desc {
-            font-size: 16px;
-            color: var(--text-gray);
-            margin-bottom: 60px;
-        }
-
-        .feature-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background-color: var(--pure-white);
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(10, 92, 158, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-        }
-
-        .feature-title {
-            font-size: 20px;
-            color: var(--deep-navy);
-            margin-bottom: 15px;
-        }
-
-        .feature-text {
-            font-size: 15px;
-            color: var(--text-gray);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--deep-navy);
-            color: #AEB9E2;
-            padding: 60px 20px 30px 20px;
-            font-size: 14px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-info h3 {
-            color: var(--pure-white);
-            font-size: 20px;
-            margin-bottom: 20px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .footer-info p {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-links h4 {
-            color: var(--pure-white);
-            margin-bottom: 20px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #AEB9E2;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--pure-white);
-            padding-left: 5px;
-        }
-
-        .copyright {
-            text-align: center;
-            font-size: 13px;
-            color: #7A88B6;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none; /* Simplification for mobile view in sample */
-            }
-            .hero-title {
-                font-size: 32px;
-            }
-            .hero-description {
-                font-size: 15px;
-            }
-        }
-    </style>
+    <meta name="description" content="비에이텍(주)은 부스터 펌프 시스템, 수중 펌프, 정량 펌프 등 산업용·특수 펌프의 자체 설계(CAD), 정밀 제조 및 유지보수 A/S 전문 기업입니다. 깨끗한 물을 움직이는 첨단 펌프 기술의 리더.">
+    <meta name="keywords" content="비에이텍, BATECH, 워터펌프, 부스터펌프, 수중펌프, 정량펌프, 슬러지펌프, 펌프설치, 펌프수리, 펌프제조">
+    <meta name="author" content="비에이텍(주)">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="비에이텍(주) - 깨끗한 물을 움직이는 첨단 펌프 기술의 리더">
+    <meta property="og:description" content="산업용·특수 펌프 설계, 정밀 제조, 성능 시험 및 철저한 유지관리 지침서 기반 A/S 전문기업">
+    <meta property="og:url" content="http://batech.co.kr">
+    <title>비에이텍(주) - 깨끗한 물을 움직이는 첨단 펌프 기술의 리더</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External CSS Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">BIATEC<span>(주)비에이텍</span></a>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="intro.html" class="nav-link">기업소개</a></li>
-                    <li class="nav-item"><a href="product.html" class="nav-link">주요제품</a></li>
-                    <li class="nav-item"><a href="equipment.html" class="nav-link">장비현황</a></li>
-                    <li class="nav-item"><a href="sales_history.html" class="nav-link">업력 및 인증</a></li>
-                    <li class="nav-item"><a href="map.html" class="nav-link">찾아오시는 길</a></li>
-                    <li class="nav-item"><a href="inquiry.html" class="nav-link">온라인 문의</a></li>
-                </ul>
-            </nav>
+    <!-- HEADER & NAVIGATION -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <div class="logo-symbol">
+                    <i class="fa-solid fa-water"></i>
+                </div>
+                <div class="logo-text">
+                    BATECH
+                    <span>비에이텍(주)</span>
+                </div>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="intro.html">기업소개</a></li>
+                <li class="nav-item"><a href="product.html">주요제품</a></li>
+                <li class="nav-item"><a href="equipment.html">장비현황</a></li>
+                <li class="nav-item"><a href="sales_history.html">업력 및 인증</a></li>
+                <li class="nav-item"><a href="map.html">찾아오시는 길</a></li>
+                <li class="nav-item"><a href="inquiry.html">온라인 문의</a></li>
+            </ul>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-subtitle">Blue Advanced Technology</p>
-            <h1 class="hero-title">깨끗한 물을 움직이는<br>첨단 펌프 기술의 리더</h1>
-            <p class="hero-description">
-                비에이텍(주)은 부스터 펌프 시스템, 수중 펌프, 정량 펌프 등 최첨단 산업용 펌프 제조 및 유지관리 전문 기업으로서 완벽한 품질 보증과 친환경 위생을 실현합니다.
+            <div class="hero-badge">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>KC 위생안전인증 / ISO 9001 획득 기업</span>
+            </div>
+            <h1 class="hero-title">
+                깨끗한 물을 움직이는<br>
+                <span>첨단 펌프 기술의 리더</span>, 비에이텍(주)
+            </h1>
+            <p class="hero-desc">
+                상수도 가압부터 고농도 슬러지 처리까지, 깨끗한 물의 시작과 끝에는 항상 비에이텍의 혁신적인 기술력과 정밀함이 함께합니다.
             </p>
-            <a href="product.html" class="cta-btn">제품 라인업 보기</a>
+            <div class="hero-buttons">
+                <a href="product.html" class="btn btn-primary">
+                    제품 라인업 보기 <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="inquiry.html" class="btn btn-secondary">
+                    온라인 문의하기 <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <h2 class="section-title">비에이텍의 핵심 역량</h2>
-        <p class="section-desc">체계적인 기술과 철저한 품질 관리로 최적의 수처리 솔루션을 제공합니다.</p>
         
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">💧</div>
-                <h3 class="feature-title">친환경 위생 안전</h3>
-                <p class="feature-text">KC 위생안전기준 인증을 획득한 부스터 펌프 시스템으로 안심하고 마실 수 있는 깨끗한 급수 환경을 보장합니다.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚙️</div>
-                <h3 class="feature-title">자체 설계 및 맞춤 제작</h3>
-                <p class="feature-text">수중펌프 CAD 도면 자체 설계 역량 및 밀링, 선반 등 정밀 제조 장비를 보유하여 고객사 맞춤형 펌프를 제작합니다.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📋</div>
-                <h3 class="feature-title">철저한 유지관리 지침</h3>
-                <p class="feature-text">설계 단계부터 유지보수까지 규격화된 '운전 및 유지관리 지침서'를 기반으로 24시간 안정적인 운전을 지원합니다.</p>
+        <!-- Clean Water Wave visual representation -->
+        <div class="water-wave-container">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS QUICK BANNER -->
+    <section class="certs-section">
+        <div class="container">
+            <div class="certs-grid">
+                <div class="cert-card animate-on-scroll">
+                    <div class="cert-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>KC 위생안전기준 인증</h4>
+                        <p>친환경 자재 활용 위생 안전 보장</p>
+                    </div>
+                </div>
+                <div class="cert-card animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="cert-icon">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>ISO 9001 품질인증</h4>
+                        <p>정밀 설계/제조 전과정 엄격 보증</p>
+                    </div>
+                </div>
+                <div class="cert-card animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="cert-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>MAIN-BIZ 인증</h4>
+                        <p>중소벤처기업부 인증 경영혁신</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>비에이텍(주)</h3>
-                <p>대표이사: 조세연</p>
-                <p>주소: (24427) 강원특별자치도 춘천시 퇴계공단2길 64 (퇴계동)</p>
-                <p>TEL: 033-264-9243 &nbsp;|&nbsp; FAX: 033-251-5747</p>
-                <p>이메일/담당자 문의: 대지 및 지침서 참조</p>
+    <!-- KEY PRODUCTS SHOWCASE -->
+    <section class="products section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Core Technology</span>
+                <h2 class="section-title">비에이텍 <span>핵심 펌프 솔루션</span></h2>
             </div>
-            <div class="footer-links">
-                <h4>바로가기</h4>
-                <ul>
-                    <li><a href="intro.html">기업소개</a></li>
-                    <li><a href="product.html">주요제품</a></li>
-                    <li><a href="equipment.html">장비현황</a></li>
-                    <li><a href="sales_history.html">업력 및 인증서</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>고객지원</h4>
-                <ul>
-                    <li><a href="map.html">찾아오시는 길</a></li>
-                    <li><a href="inquiry.html">온라인 문의</a></li>
-                </ul>
+            
+            <div class="products-grid">
+                <!-- Card 1: 부스터 펌프 시스템 -->
+                <div class="product-card animate-on-scroll">
+                    <div class="product-visual">
+                        <div class="product-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-tag">Booster Pump System</span>
+                        <h3>부스터 펌프 시스템</h3>
+                        <p class="product-desc">아파트, 빌딩, 산업시설의 상수도 가압 및 고효율 인버터 제어를 통한 스마트 안정 급수 솔루션.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-circle"></i> <span>편심캠에 의한 맥동의 최소화</span></li>
+                            <li><i class="fa-solid fa-circle"></i> <span>에너지 절감 및 부드러운 운전</span></li>
+                        </ul>
+                    </div>
+                    <a href="product.html" class="product-link">
+                        상세 사양 보기 <i class="fa-solid fa-circle-chevron-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2: 수중 펌프 -->
+                <div class="product-card animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="product-visual">
+                        <div class="product-icon"><i class="fa-solid fa-arrows-down-to-line"></i></div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-tag">Submersible Pump</span>
+                        <h3>수중 펌프</h3>
+                        <p class="product-desc">지하수 양수, 배수 설비, 토목 현장 등 완전 침수 환경에서도 안전하고 뛰어난 수자원 배출 관리.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-circle"></i> <span>완벽 방수 고성능 모터 내장</span></li>
+                            <li><i class="fa-solid fa-circle"></i> <span>더블 메카니컬 씰(Mechanical Seal)</span></li>
+                        </ul>
+                    </div>
+                    <a href="product.html" class="product-link">
+                        상세 사양 보기 <i class="fa-solid fa-circle-chevron-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3: 슬러지 펌프 -->
+                <div class="product-card animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="product-visual">
+                        <div class="product-icon"><i class="fa-solid fa-recycle"></i></div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-tag">Sludge Pump</span>
+                        <h3>슬러지 펌프</h3>
+                        <p class="product-desc">하수·폐수 처리장, 축산 분뇨, 공장 폐수 내 슬러지 및 고농도 찌꺼기 이송을 위한 설계.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-circle"></i> <span>부식/분진에 강한 내식성 자재</span></li>
+                            <li><i class="fa-solid fa-circle"></i> <span>막힘 방지용 임펠러 특수 설계</span></li>
+                        </ul>
+                    </div>
+                    <a href="product.html" class="product-link">
+                        상세 사양 보기 <i class="fa-solid fa-circle-chevron-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 4: 일축나사식 모노 펌프 -->
+                <div class="product-card animate-on-scroll">
+                    <div class="product-visual">
+                        <div class="product-icon"><i class="fa-solid fa-wrench"></i></div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-tag">Progressing Cavity Pump</span>
+                        <h3>일축나사식 모노 펌프</h3>
+                        <p class="product-desc">고농도·고점도 액체 및 정량 이송이 필수적인 정밀 화학, 식품 공정 맞춤형 특수 펌프.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-circle"></i> <span>강력한 자흡 능력 (수두 약 10m)</span></li>
+                            <li><i class="fa-solid fa-circle"></i> <span>나선형 로터와 스테이터 구조</span></li>
+                        </ul>
+                    </div>
+                    <a href="product.html" class="product-link">
+                        상세 사양 보기 <i class="fa-solid fa-circle-chevron-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 5: 정량 펌프 -->
+                <div class="product-card animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="product-visual">
+                        <div class="product-icon"><i class="fa-solid fa-fill-drip"></i></div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-tag">Dosing Pump</span>
+                        <h3>정량 펌프</h3>
+                        <p class="product-desc">수처리 약품 및 화학 공정 내 정밀 약액을 일정한 양으로 흔들림 없이 주입하는 무맥동 시스템.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-circle"></i> <span>특수 등속도 캠으로 무맥동 연속 토출</span></li>
+                            <li><i class="fa-solid fa-circle"></i> <span>정확한 유량 제어로 약품 낭비 방지</span></li>
+                        </ul>
+                    </div>
+                    <a href="product.html" class="product-link">
+                        상세 사양 보기 <i class="fa-solid fa-circle-chevron-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 6: 편흡입 볼류트 펌프 -->
+                <div class="product-card animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="product-visual">
+                        <div class="product-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-tag">Volute Pump</span>
+                        <h3>편흡입 볼류트 펌프</h3>
+                        <p class="product-desc">산업용수 이송 및 수처리 시설의 처리수 순환 등 대용량 유체를 가장 안정적으로 이송하는 펌프.</p>
+                        <ul class="product-specs">
+                            <li><i class="fa-solid fa-circle"></i> <span>완벽한 축심 일치로 소음/진동 최소화</span></li>
+                            <li><i class="fa-solid fa-circle"></i> <span>메카니컬 씰 및 그랜드 패킹 선택</span></li>
+                        </ul>
+                    </div>
+                    <a href="product.html" class="product-link">
+                        상세 사양 보기 <i class="fa-solid fa-circle-chevron-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 Blue Advanced Technology Co., Ltd. All Rights Reserved.
+    </section>
+
+    <!-- TECHNOLOGY & QUALITY PHILOSOPHY -->
+    <section class="philosophy section-padding">
+        <div class="container">
+            <div class="philosophy-grid">
+                <div class="philosophy-text animate-on-scroll">
+                    <span class="section-subtitle">Perfect Quality Assurance</span>
+                    <h3>설계부터 사후 관리까지,<br>철저한 기술 지침서 기반 품질 보증</h3>
+                    <p>
+                        비에이텍(주)은 단순히 제품을 공급하는 것에 그치지 않고, 설계(CAD) 단계부터 제작, 시운전, 유지보수까지 모든 공정을 규격화된 기술 지침서를 기준으로 엄격하게 통제합니다.
+                    </p>
+                    
+                    <div class="philosophy-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fa-solid fa-pencil"></i></div>
+                            <div class="highlight-content">
+                                <h5>자체 CAD 도면 정밀 설계</h5>
+                                <p>수중/산업용 펌프 등 복잡한 요구 스펙의 신속한 커스텀 설계 지원</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <div class="highlight-content">
+                                <h5>보유 전문 장비 제작 역량</h5>
+                                <p>밀링머신, 알곤용접기, 호이스트 크레인 등 전문 제조 인프라 구축</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Tab Component for CS & AS Program -->
+                <div class="tabs-container animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="check">인수 전 점검</button>
+                        <button class="tab-btn" data-tab="guide">시운전 가이드</button>
+                        <button class="tab-btn" data-tab="trouble">트러블 슈팅</button>
+                    </div>
+
+                    <!-- Tab 1 -->
+                    <div id="check" class="tab-content active">
+                        <h4>인수 전 철저한 3대 검증</h4>
+                        <p style="font-size: 13px; color:#64748B; margin-bottom:16px;">제품이 현장에 운반/설치되기 전, 완벽한 작동을 약속하기 위해 검수합니다.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>케이블 피복 검수:</strong> 운반 도중 발생할 수 있는 스크래치 및 미세 손상 검사</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>볼트 체결 상태:</strong> 결합 부위의 토크 치수 준수 및 풀림 방지 상태 최종 검증</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>정격 전압 검사:</strong> 현장 공급 전압과 장비 명판 사양 일치 여부 대조</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tab 2 -->
+                    <div id="guide" class="tab-content">
+                        <h4>안전한 운전을 위한 시운전 수칙</h4>
+                        <p style="font-size: 13px; color:#64748B; margin-bottom:16px;">최초 전원 공급 시 발생할 수 있는 소손 및 고장을 예방하기 위한 핵심 단계입니다.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>저수조 수위 확인:</strong> 펌프의 공운전 방지를 위한 가용 수자원 레벨 체크</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>케이싱 내 공기 배출:</strong> 에어 록 방지를 위한 신속한 에어 벤트 수행</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>결선 및 모터 회전 확인:</strong> 모터의 정방향 회전 및 결선 체결 상태 점검</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tab 3 -->
+                    <div id="trouble" class="tab-content">
+                        <h4>체계적인 현장 트러블 슈팅</h4>
+                        <p style="font-size: 13px; color:#64748B; margin-bottom:16px;">이상 징후 발생 시, 24시간 이내에 원인을 분석하고 정상화를 지원합니다.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>양수 불능 즉시 진단:</strong> 진공 및 펌핑 이상 발생 원인의 신속한 현장 규명</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>전류 및 누전 대처:</strong> 과전류 트립, 차단기 동작 시 절연 상태 측정</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i> <span><strong>소음/이상 진동 감지:</strong> 지침서 기반 메카니컬 정밀 진단 및 원격 지원</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER (Manual PDF Promotion) -->
+    <section class="cta-banner section-padding">
+        <div class="container cta-content animate-on-scroll">
+            <div class="cta-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <h2>비에이텍 기술 표준 지침서 & 매뉴얼 안내</h2>
+            <p>
+                부스터 펌프, 수중 펌프 등 비에이텍 제품의 올바른 취급 방법과 고장 배제 대책이 수록된 정형화된 지침서를 온라인 문의 및 자료실을 통해 지원하고 있습니다.
+            </p>
+            <a href="inquiry.html" class="btn btn-primary">
+                유지관리 매뉴얼 다운로드 문의 <i class="fa-solid fa-download"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-top">
+            <div class="footer-about">
+                <div class="logo footer-logo">
+                    <div class="logo-symbol">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <div class="logo-text">
+                        BATECH
+                        <span>비에이텍(주)</span>
+                    </div>
+                </div>
+                <p>
+                    비에이텍(주)은 "깨끗한 물을 움직이는 첨단 펌프 기술의 리더"로서 고효율 친환경 워터펌프의 CAD 설계부터 정밀 제조, 성능 시험, 철저한 유지관리 서비스까지 원스톱으로 제공합니다.
+                </p>
+                <!-- Certification Badges -->
+                <div class="footer-badges">
+                    <span class="badge-pill"><i class="fa-solid fa-stamp"></i> KC 위생안전인증</span>
+                    <span class="badge-pill"><i class="fa-solid fa-certificate"></i> ISO 9001:2015</span>
+                    <span class="badge-pill"><i class="fa-solid fa-award"></i> MAIN-BIZ 경영혁신</span>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>신속 바로가기</h4>
+                <ul class="footer-menu">
+                    <li><a href="intro.html"><i class="fa-solid fa-chevron-right"></i> 기업소개 (intro)</a></li>
+                    <li><a href="product.html"><i class="fa-solid fa-chevron-right"></i> 주요제품 (product)</a></li>
+                    <li><a href="equipment.html"><i class="fa-solid fa-chevron-right"></i> 장비현황 (equipment)</a></li>
+                    <li><a href="sales_history.html"><i class="fa-solid fa-chevron-right"></i> 업력 및 인증 (sales_history)</a></li>
+                    <li><a href="map.html"><i class="fa-solid fa-chevron-right"></i> 찾아오시는 길 (map)</a></li>
+                    <li><a href="inquiry.html"><i class="fa-solid fa-chevron-right"></i> 온라인 문의 (inquiry)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>공식 연락망</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <div>
+                            <strong>본사 및 공장 주소</strong>
+                            (24427) 강원특별자치도 춘천시 퇴계공단2길 64 (퇴계동)
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <strong>대표전화</strong>
+                            033-264-9243
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-fax"></i>
+                        <div>
+                            <strong>팩스번호</strong>
+                            033-251-5747
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <div>
+                            <strong>담당자 이메일</strong>
+                            aaa@naver.com (공식 기술 및 견적 수신처)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>Copyright &copy; 2026 Blue Advanced Technology Co., Ltd. (비에이텍 주식회사) All Rights Reserved.</p>
+            <div class="footer-info-meta">
+                대표이사: 조세연 | A/S 및 기술문의: 품질보증부 정영호 담당자
+            </div>
         </div>
     </footer>
 
+    <!-- External Script JS -->
+    <script src="scripts.js"></script>
 </body>
 </html>
